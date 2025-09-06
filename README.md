@@ -77,7 +77,7 @@ R² Score: 0.9112
 ├── stock_price_prediction_dataset.csv   # Stock price dataset
 ├── README.md                      # Project documentation
 └── media/
-    └── Predicted Vs Actual.png    # Model performance visualization
+    └── Predicted_vs_Actual.png    # Model performance visualization
 
 ---
 
