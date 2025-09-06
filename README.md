@@ -32,6 +32,7 @@ This project demonstrates how to predict stock closing prices using a deep learn
 ### 6. Visualization
 - Plots actual vs. predicted stock prices.
 - Visualizes loss curves and gradient norms for different activations.
+![Predicted Vs Actual price Image](media/predicted Vs Actual.png)
 
 ### 7. Model Evaluation Metrics:
 Mean Squared Error (MSE): 73.0312
