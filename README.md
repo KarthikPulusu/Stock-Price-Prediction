@@ -1,6 +1,6 @@
 # Stock Price Prediction using Deep Learning
 
-This project demonstrates how to predict stock closing prices using a deep learning regression model built with PyTorch. The workflow covers data preprocessing, feature engineering, model training with different activation functions, and performance visualization.
+This project demonstrates how to predict stock closing prices using a deep learning regression model built with PyTorch.  The workflow covers data preprocessing, feature engineering, model training with different activation functions, model evaluation and performance visualization.
 
 ---
 
@@ -12,8 +12,8 @@ This project demonstrates how to predict stock closing prices using a deep learn
 - **Feature Engineering:** Extracts date-based features (day, month, year, day of week, month end).
 - **Encoding:** Converts categorical variables (`Stock Code`, `Sector`) into numerical format using one-hot encoding.
 
-### 2. Data Normalization & Splitting
-- **Scaling:** Normalizes features and target (`Close Price`) using `StandardScaler`.
+### 2. Data Standardization & Splitting
+- **Scaling:** Standardizes features and target (`Close Price`) using `StandardScaler`.
 - **Train-Test Split:** Splits the dataset into training and testing sets.
 
 ### 3. PyTorch Dataset Preparation
@@ -27,11 +27,22 @@ This project demonstrates how to predict stock closing prices using a deep learn
 ### 5. Training & Evaluation
 - Trains the model using the Adam optimizer and MSE loss.
 - Compares the effect of different activation functions (Leaky ReLU vs. Sigmoid) on training loss and gradient norms.
-- Evaluates model predictions on the test set.
+- Evaluates model predictions on the test set using regression metrics.
 
 ### 6. Visualization
 - Plots actual vs. predicted stock prices.
 - Visualizes loss curves and gradient norms for different activations.
+
+### 7. Model Evaluation Metrics:
+Mean Squared Error (MSE): 73.0312
+Root Mean Squared Error (RMSE): 8.5458
+R² Score: 0.9112
+
+### 8. Results & Findings
+
+- **Leaky ReLU** activation outperforms **Sigmoid** in both loss reduction and gradient stability.
+- Leaky ReLU helps avoid vanishing gradients, leading to better and faster learning.
+- The model can predict stock closing prices with an accuracy of 91% after proper preprocessing and training.
 
 ---
 
@@ -54,14 +65,6 @@ This project demonstrates how to predict stock closing prices using a deep learn
 
 3. **Run All Cells:**
     - Execute each cell in order for end-to-end results.
-
----
-
-## **Results & Findings**
-
-- **Leaky ReLU** activation outperforms **Sigmoid** in both loss reduction and gradient stability.
-- Leaky ReLU helps avoid vanishing gradients, leading to better and faster learning.
-- The model can predict stock closing prices with reasonable accuracy after proper preprocessing and training.
 
 ---
 
