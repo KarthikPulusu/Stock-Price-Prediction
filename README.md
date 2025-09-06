@@ -45,6 +45,9 @@ R² Score: 0.9112
 - Leaky ReLU helps avoid vanishing gradients, leading to better and faster learning.
 - The model can predict stock closing prices with an accuracy of 91% after proper preprocessing and training.
 
+[![Watch the Demo](media/demo_video_thumbnail.png)](https://www.loom.com/share/2786f34112ef4bfe9414d24fe0e2ef7d?sid=d01daa80-4a56-45a0-8117-af5c48e4bf42)
+
+
 ---
 
 ## **Key Files**
@@ -73,11 +76,13 @@ R² Score: 0.9112
 
 ```
 .
-├── Stock_Price_Prediction.ipynb   # Main Jupyter notebook
-├── stock_price_prediction_dataset.csv   # Stock price dataset
-├── README.md                      # Project documentation
+├── Stock_Price_Prediction.ipynb        # Main Jupyter notebook
+├── stock_price_prediction_dataset.csv  # Stock price dataset
+├── README.md                           # Project documentation
 └── media/
-    └── Predicted_vs_Actual.png    # Model performance visualization
+    ├── Predicted_vs_Actual.png         # Model performance visualization
+    └── demo_video_thumbnail.png        # Project explanation thumbnail
+
 
 ---
 
