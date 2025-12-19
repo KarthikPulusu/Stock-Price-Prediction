@@ -107,7 +107,9 @@ These results indicate strong predictive performance while remaining realistic f
 ## 📉 Visualization
 - Actual vs Predicted stock prices  
 - Time-series plots for trend comparison  
-- Error distribution analysis  
+- Error distribution analysis
+### Actual vs Predicted Stock Prices
+![Actual vs Predicted Stock Prices](images/actual_vs_predicted.png)
 
 ---
 
