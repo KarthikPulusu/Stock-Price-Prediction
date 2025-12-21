@@ -1,17 +1,17 @@
 # 📈 Stock Market Prediction using Machine Learning & Sentiment Analysis
 
 ## 📌 Overview
-This project predicts stock closing prices by combining historical market data with financial news sentiment analysis. It enhances traditional time-series forecasting by integrating transformer-based NLP (FinBERT) and optional LLM-based sentiment analysis to capture market psychology and news impact.
+This project predicts stock closing prices by combining historical market data with financial news sentiment analysis. It enhances traditional time-series forecasting by integrating **transformer-based financial NLP (FinBERT)** and an **LLM-based sentiment approach (GenAI)** to capture market psychology and news impact.
 
-The system is designed using a production-style ML pipeline with rolling-window validation to avoid data leakage and ensure realistic performance.
+The solution follows a **production-style ML pipeline** using a **rolling window strategy** to prevent data leakage and simulate real-world deployment.
 
 ---
 
 ## 🎯 Objectives
-- Predict future stock closing prices using historical data  
+- Predict future stock closing prices using historical market data  
 - Improve prediction accuracy using financial news sentiment  
-- Compare rule-based, transformer-based, and GenAI sentiment approaches  
-- Build a realistic, interview-ready ML pipeline  
+- Compare transformer-based sentiment models with LLM-based GenAI approaches  
+- Build an interview-ready, production-aware ML pipeline  
 
 ---
 
@@ -20,8 +20,8 @@ The system is designed using a production-style ML pipeline with rolling-window 
 - **Data Handling:** Pandas, NumPy  
 - **Visualization:** Matplotlib  
 - **Machine Learning:** Scikit-learn (Random Forest Regressor)  
-- **NLP & Transformers:** FinBERT (HuggingFace Transformers)  
-- **Optional GenAI:** LLM-based sentiment classification  
+- **NLP & Transformers:** FinBERT (Hugging Face)  
+- **GenAI (LLM):** FLAN-T5 / Zero-shot LLM sentiment (subset-based)  
 - **Evaluation:** MAE, RMSE, R²  
 
 ---
@@ -30,26 +30,26 @@ The system is designed using a production-style ML pipeline with rolling-window 
 
 ### 1️⃣ Stock Market Data
 - Historical stock prices (Open, High, Low, Close, Volume)
-- Time-indexed daily data
+- Daily time-series data
 
 ### 2️⃣ News Headlines
 - Financial and market-related news headlines
-- Aligned by date with stock price data
+- Aggregated and aligned by date with stock price data
 
 ---
 
 ## 🧹 Data Preprocessing
-- Handled missing values and duplicates  
-- Converted dates to time-series index  
-- Normalized numeric features where required  
-- Merged stock data with sentiment scores based on date  
+- Removed duplicates and handled missing values  
+- Converted date fields to time-series format  
+- Cleaned and normalized text data  
+- Merged stock data with daily aggregated sentiment features  
 
 ---
 
 ## 📊 Feature Engineering
 
 ### Technical Indicators
-The following indicators were computed to capture price trends and momentum:
+To capture market trends and momentum, the following indicators were computed:
 - Simple Moving Average (SMA)
 - Exponential Moving Average (EMA)
 - Relative Strength Index (RSI)
@@ -57,57 +57,63 @@ The following indicators were computed to capture price trends and momentum:
 - On-Balance Volume (OBV)
 
 ### Sentiment Features
-Each news headline is converted into sentiment scores and aggregated daily.
+- News headlines were converted into sentiment scores  
+- Daily sentiment was aggregated and merged with stock data  
 
 ---
 
 ## 🧠 Sentiment Analysis Approaches
 
-### ✅ 1️⃣ FinBERT (Primary Approach)
+### 1️⃣ FinBERT (Primary – Production)
 - Transformer-based model trained on financial text  
-- Outputs Positive / Neutral / Negative sentiment  
-- More accurate than rule-based approaches like VADER  
-- Industry-accepted for financial NLP tasks  
+- Outputs Positive / Neutral / Negative sentiment probabilities  
+- Faster and more stable for large-scale inference  
+- Used for sentiment generation across the full dataset  
 
-### ✅ 2️⃣ LLM-Based Sentiment (Optional / GenAI)
-- Uses prompt-based classification with large language models  
-- Demonstrates GenAI and prompt engineering skills  
-- Used for comparison or ensemble analysis  
+### 2️⃣ LLM-Based Sentiment (Secondary – GenAI)
+- Prompt-based sentiment classification using open-source LLMs  
+- Applied on a **small representative subset** for validation and comparison  
+- Demonstrates GenAI, prompt engineering, and batching strategies  
+- Used to validate sentiment quality rather than bulk inference  
+
+> **Note:** LLM inference is intentionally limited to a subset to balance accuracy and computational efficiency.
 
 ---
 
 ## 🤖 Machine Learning Model
 - **Model Used:** Random Forest Regressor  
 - Handles non-linear relationships effectively  
-- Robust to noise in financial data  
+- Robust to noisy financial and sentiment data  
 
 ### 🔄 Rolling Window Strategy
-- Trained only on past data  
-- Tested on future unseen data  
-- Prevents data leakage and simulates real-world deployment  
+- Model is trained only on past data  
+- Evaluated on future unseen data  
+- Prevents data leakage and mirrors real-world forecasting  
 
 ---
 
 ## 📈 Model Evaluation
 The model is evaluated using standard regression metrics:
 
-- **MAE (Mean Absolute Error)** – Average prediction error  
-- **RMSE (Root Mean Squared Error)** – Penalizes large errors  
-- **R² Score** – Variance explained by the model  
+- **MAE (Mean Absolute Error):** Average prediction error  
+- **RMSE (Root Mean Squared Error):** Penalizes large errors  
+- **R² Score:** Variance explained by the model  
 
 ### Sample Results
-MAE ≈ 41
-RMSE ≈ 62
-R² ≈ 0.84
+MAE ≈ 58
+RMSE ≈ 461
+R² ≈ 0.99
 
-These results indicate strong predictive performance while remaining realistic for volatile financial markets.
+
+These results indicate strong predictive performance while maintaining realistic evaluation practices.
 
 ---
 
 ## 📉 Visualization
 - Actual vs Predicted stock prices  
-- Time-series plots for trend comparison  
-- Error distribution analysis
+- Time-series trend comparison  
+- Error distribution analysis  
+
 ### Actual vs Predicted Stock Prices
 ![Actual vs Predicted Stock Prices](media/actual_vs_predicted.png)
 
@@ -115,24 +121,25 @@ These results indicate strong predictive performance while remaining realistic f
 
 ## 🚀 Key Achievements
 - Integrated transformer-based financial sentiment analysis  
-- Achieved R² ≈ 0.84 without data leakage  
-- Built a feature-rich ML pipeline combining structured and unstructured data  
-- Demonstrated NLP, ML, and GenAI concepts in a single project  
+- Demonstrated GenAI sentiment classification using LLMs  
+- Avoided data leakage using rolling-window validation  
+- Combined structured market data with unstructured text data  
+- Designed a scalable, production-oriented ML workflow  
 
 ---
 
 ## 📚 What I Learned
 - Time-series forecasting with rolling validation  
 - Financial NLP using transformer models  
-- Importance of avoiding data leakage in ML  
-- Combining structured market data with unstructured text  
-- Building realistic, production-oriented ML workflows  
+- Practical trade-offs between LLMs and task-specific models  
+- Efficient batch inference and subset-based validation  
+- Designing realistic ML pipelines for production use  
 
 ---
 
 ## 🔮 Future Enhancements
-- Deploy model using FastAPI or Flask  
-- Add MLOps components (monitoring, retraining)  
+- Deploy the model using FastAPI or Flask  
+- Add MLOps components (monitoring, retraining, versioning)  
 - Integrate real-time news APIs  
 - Experiment with LSTM / Transformer-based forecasting models  
 - Deploy on cloud platforms (AWS / GCP / Azure)  
@@ -143,3 +150,4 @@ These results indicate strong predictive performance while remaining realistic f
 **Karthik Pulusu**  
 B.Tech | Data Science & Machine Learning  
 Hyderabad, India
+
